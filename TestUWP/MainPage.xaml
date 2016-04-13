@@ -5,16 +5,18 @@
     xmlns:local="using:TestUWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" d:DataContext="{d:DesignInstance local:MainPage}">
+    mc:Ignorable="d" d:DataContext="{d:DesignInstance local:MainPage}"
+    Loaded="MainPage_OnLoaded">
 <Page.Resources>
     <local:ThicknessConverter x:Key="ThicknessConverter" />
 </Page.Resources>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="MainGrid"
-          MaxHeight="500" MaxWidth="500">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="MainGrid">
         <Rectangle StrokeThickness="3" Stroke="LimeGreen"
                    Margin="{Binding BoundingRect, Converter={StaticResource ThicknessConverter}}"
                    Width="{Binding BoundingRect.Width}"
-                   Height="{Binding BoundingRect.Height}" />
+                   Height="{Binding BoundingRect.Height}"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"/>
         <Grid x:Name="ScrollViewer">
             <Viewbox x:Name="Viewbox"
                      ManipulationMode="All"
@@ -23,10 +25,15 @@
                      RenderTransform="{Binding TransformGroup}"
                      ManipulationDelta="Viewbox_OnManipulationDelta">
                 <Grid>
-                    <Image Source="pic.jpg"></Image>
+                    <Image x:Name="img" Source="pic.jpg"></Image>
                 </Grid>
             </Viewbox>
         </Grid>
+        <StackPanel Background="Black" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal">
+            <TextBlock Text="{Binding BoundingRect.Width}" Margin="5 1" Foreground="White" />
+            <TextBlock Text="{Binding BoundingRect.X}" Margin="5 1" Foreground="White" />
+            <TextBlock Text="{Binding BoundingRect.Y}" Margin="5 1" Foreground="White" />
+        </StackPanel>
         <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="40" Content="Reset" Click="ButtonBase_OnClick" />
     </Grid>
 </Page>
