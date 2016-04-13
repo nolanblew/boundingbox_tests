@@ -59,6 +59,9 @@ namespace TestUWP
 
         Rect _boundingRect;
 
+        /// <summary>
+        /// Rectangle that represents the bounding box
+        /// </summary>
         public Rect BoundingRect
         {
             get { return _boundingRect; }
@@ -104,6 +107,7 @@ namespace TestUWP
 
         void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
+            // Reset everything
             _previousTransform.Matrix = Matrix.Identity;
             _deltaTransform.Rotation = 0.0;
             _deltaTransform.CenterX = 0;
