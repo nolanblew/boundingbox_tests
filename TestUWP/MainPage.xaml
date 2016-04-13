@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="TestUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TestUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DataContext="{d:DesignInstance local:MainPage}">
+<Page.Resources>
+    <local:ThicknessConverter x:Key="ThicknessConverter" />
+</Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="MainGrid"
+          MaxHeight="500" MaxWidth="500">
+        <Rectangle StrokeThickness="3" Stroke="LimeGreen"
+                   Margin="{Binding BoundingRect, Converter={StaticResource ThicknessConverter}}"
+                   Width="{Binding BoundingRect.Width}"
+                   Height="{Binding BoundingRect.Height}" />
+        <Grid x:Name="ScrollViewer">
+            <Viewbox x:Name="Viewbox"
+                     ManipulationMode="All"
+                     Width="{Binding ElementName=ScrollViewer, Path=ActualWidth}"
+                     Height="{Binding ElementName=ScrollViewer, Path=ActualHeight}"
+                     RenderTransform="{Binding TransformGroup}"
+                     ManipulationDelta="Viewbox_OnManipulationDelta">
+                <Grid>
+                    <Image Source="pic.jpg"></Image>
+                </Grid>
+            </Viewbox>
+        </Grid>
+        <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="40" Content="Reset" Click="ButtonBase_OnClick" />
+    </Grid>
+</Page>
