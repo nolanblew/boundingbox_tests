@@ -1,1 +1,0 @@
-C:\Users\NolanBlew\Documents\Visual Studio 2015\Projects\TestUWP\TestUWP\TestUWP.csproj;x86

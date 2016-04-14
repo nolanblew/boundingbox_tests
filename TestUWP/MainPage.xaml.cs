@@ -30,6 +30,7 @@ namespace TestUWP
         public MainPage()
         {
             this.InitializeComponent();
+            this.SizeChanged += MainPage_SizeChanged;
 
             _previousTransform = new MatrixTransform();
             _deltaTransform = new CompositeTransform();
@@ -40,7 +41,7 @@ namespace TestUWP
             DataContext = this;
         }
 
-        void MainPage_OnLoaded(object sender, RoutedEventArgs e)
+        private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             OverlayGrid(true);
         }
@@ -124,6 +125,8 @@ namespace TestUWP
             int rows = (int)(MainGrid.ActualWidth / _gridSize) + 1;
             int cols = (int)(MainGrid.ActualHeight / _gridSize) + 1;
 
+            LineGrid.Children.Clear();
+
             for (int r = 0; r < rows; r++)
             {
                 for (int c = 0; c < cols; c++)
@@ -144,7 +147,7 @@ namespace TestUWP
 
             rct.Margin = new Thickness(row * _gridSize, col * _gridSize, 0, 0);
             rct.Visibility = Visibility.Visible;
-            MainGrid.Children.Add(rct);
+            LineGrid.Children.Add(rct);
 
             if (includeCoordinates)
             {
@@ -158,7 +161,7 @@ namespace TestUWP
                 textBlock.Margin = new Thickness(row * _gridSize + 1, col * _gridSize, 0, 0);
                 textBlock.Visibility = Visibility.Visible;
 
-                MainGrid.Children.Add(textBlock);
+                LineGrid.Children.Add(textBlock);
             }
         }
 

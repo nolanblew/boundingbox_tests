@@ -5,34 +5,46 @@
     xmlns:local="using:TestUWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" d:DataContext="{d:DesignInstance local:MainPage}"
-    Loaded="MainPage_OnLoaded">
+    mc:Ignorable="d" d:DataContext="{d:DesignInstance local:MainPage}">
 <Page.Resources>
     <local:ThicknessConverter x:Key="ThicknessConverter" />
 </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="MainGrid">
-        <Rectangle StrokeThickness="3" Stroke="LimeGreen"
+        <ScrollViewer x:Name="ScrollViewer" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >
+            <Grid>
+                <Viewbox x:Name="Viewbox"
+                         ManipulationMode="All"
+                         RenderTransform="{Binding TransformGroup}"
+                         ManipulationDelta="Viewbox_OnManipulationDelta"
+                         VerticalAlignment="Top"
+                       HorizontalAlignment="Left">
+                    <Grid>
+                        <Image x:Name="img" Source="pic.jpg"></Image>
+                    </Grid>
+                </Viewbox>
+                <Rectangle StrokeThickness="3" Stroke="LimeGreen"
                    Margin="{Binding BoundingRect, Converter={StaticResource ThicknessConverter}}"
                    Width="{Binding BoundingRect.Width}"
                    Height="{Binding BoundingRect.Height}"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"/>
-        <Grid x:Name="ScrollViewer">
-            <Viewbox x:Name="Viewbox"
-                     ManipulationMode="All"
-                     Width="{Binding ElementName=ScrollViewer, Path=ActualWidth}"
-                     Height="{Binding ElementName=ScrollViewer, Path=ActualHeight}"
-                     RenderTransform="{Binding TransformGroup}"
-                     ManipulationDelta="Viewbox_OnManipulationDelta">
-                <Grid>
-                    <Image x:Name="img" Source="pic.jpg"></Image>
-                </Grid>
-            </Viewbox>
-        </Grid>
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"/>
+            </Grid>
+        </ScrollViewer>
+        <Grid x:Name="LineGrid"></Grid>
+        <StackPanel Background="Black" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 25 0 0">
+            <TextBlock Text="Image" Margin="5 1" Foreground="White" />
+            <TextBlock Text="{Binding ElementName=Viewbox, Path=ActualWidth}" Margin="5 1" Foreground="White" />
+            <TextBlock Text="{Binding ElementName=Viewbox, Path=ActualHeight}" Margin="5 1" Foreground="White" />
+
+        </StackPanel>
         <StackPanel Background="Black" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal">
+            <TextBlock Text="Box" Margin="5 1" Foreground="White" />
             <TextBlock Text="{Binding BoundingRect.Width}" Margin="5 1" Foreground="White" />
+            <TextBlock Text="{Binding BoundingRect.Height}" Margin="5 1" Foreground="White" />
             <TextBlock Text="{Binding BoundingRect.X}" Margin="5 1" Foreground="White" />
             <TextBlock Text="{Binding BoundingRect.Y}" Margin="5 1" Foreground="White" />
+            <TextBlock Text="{Binding BoundingRect.Top}" Margin="5 1" Foreground="White" />
+            <TextBlock Text="{Binding BoundingRect.Left}" Margin="5 1" Foreground="White" />
         </StackPanel>
         <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="40" Content="Reset" Click="ButtonBase_OnClick" />
     </Grid>
