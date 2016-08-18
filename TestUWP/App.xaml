@@ -1,8 +1,15 @@
-﻿<Application
+﻿<windows:PrismUnityApplication
     x:Class="TestUWP.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TestUWP"
+    xmlns:windows="using:Prism.Unity.Windows"
     RequestedTheme="Light">
-
-</Application>
+    <windows:PrismUnityApplication.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </windows:PrismUnityApplication.Resources>
+</windows:PrismUnityApplication>

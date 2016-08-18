@@ -1,64 +1,133 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
-  <Roots.Interfaces>
-    <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
-  </Roots.Interfaces>
   <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="ActualWidth" />
-    <RootPropertyPathName Name="ActualHeight" />
-    <RootPropertyPathName Name="TransformGroup" />
-    <RootPropertyPathName Name="BoundingRect" />
-    <RootPropertyPathName Name="Width" />
-    <RootPropertyPathName Name="Height" />
+    <RootPropertyPathName Name="Person" />
+    <RootPropertyPathName Name="Specialty" />
+    <RootPropertyPathName Name="HairColor" />
+    <RootPropertyPathName Name="LastName" />
+    <RootPropertyPathName Name="FirstName" />
+    <RootPropertyPathName Name="FullName" />
+    <RootPropertyPathName Name="Initials" />
+    <RootPropertyPathName Name="SelectedPerson" />
+    <RootPropertyPathName Name="People" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
-    <RootType FullName="Windows.UI.Xaml.Application">
+    <RootType FullName="Prism.Unity.Windows.PrismUnityApplication">
       <RootProperty Name="RequestedTheme" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Resources" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.ResourceDictionary">
+      <RootProperty Name="MergedDictionaries" />
+      <RootProperty Name="Source" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
       <RootProperty Name="Content" />
     </RootType>
-    <RootType FullName="TestUWP.ThicknessConverter" />
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
-      <RootProperty Name="Background" />
-      <RootProperty Name="MaxHeight" />
-      <RootProperty Name="MaxWidth" />
+      <RootProperty Name="DataContext" />
+      <RootProperty Name="RowDefinitions" />
+      <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="Children" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
-    <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
-      <RootProperty Name="StrokeThickness" />
-      <RootProperty Name="Stroke" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Content" />
-      <RootEvent Name="Click" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
-      <RootProperty Name="ManipulationMode" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="RenderTransform" />
-      <RootProperty Name="Child" />
-      <RootEvent Name="ManipulationDelta" />
+      <RootProperty Name="Background" />
+      <RootMethod Name="GetColumn" />
+      <RootMethod Name="SetColumn" />
+      <RootMethod Name="GetRow" />
+      <RootMethod Name="SetRow" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="ElementName" />
       <RootProperty Name="Path" />
-      <RootProperty Name="Converter" />
+      <RootProperty Name="Mode" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Image">
-      <RootProperty Name="Source" />
+    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
+      <RootProperty Name="Height" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
+      <RootProperty Name="Width" />
+      <RootProperty Name="MinWidth" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Shapes.Ellipse">
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Fill" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="Text" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="FontWeight" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Style" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
+    <RootType FullName="TestUWP.Controls.PeopleControl">
+      <RootProperty Name="Person" />
+      <RootProperty Name="Margin" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Page">
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="TestUWP.MainPage" />
+    <RootType FullName="Windows.UI.Xaml.FrameworkElement">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Setter">
+      <RootProperty Name="Property" />
+      <RootProperty Name="Value" />
+      <RootProperty Name="Target" />
+    </RootType>
+    <RootType FullName="Prism.Windows.Mvvm.ViewModelLocator">
+      <RootMethod Name="GetAutoWireViewModel" />
+      <RootMethod Name="SetAutoWireViewModel" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.VisualStateManager">
+      <RootMethod Name="GetVisualStateGroups" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.VisualStateGroup">
+      <RootProperty Name="States" />
+      <RootEvent Name="CurrentStateChanged" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.VisualState">
+      <RootProperty Name="StateTriggers" />
+      <RootProperty Name="Setters" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.AdaptiveTrigger">
+      <RootProperty Name="MinWindowWidth" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="SelectedItem" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="ItemTemplate" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Interactivity.Interaction">
+      <RootMethod Name="GetBehaviors" />
+      <RootMethod Name="SetBehaviors" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Interactions.Core.EventTriggerBehavior">
+      <RootProperty Name="EventName" />
+      <RootProperty Name="Actions" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Interactions.Core.CallMethodAction">
+      <RootProperty Name="TargetObject" />
+      <RootProperty Name="MethodName" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="Orientation" />
+      <RootProperty Name="Children" />
+    </RootType>
+    <RootType FullName="TestUWP.Views.MainPage" />
+    <RootType FullName="TestUWP.Views.MainDetailPage" />
   </Roots.RootTypes>
 </Roots>
