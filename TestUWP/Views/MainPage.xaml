@@ -9,8 +9,6 @@
     xmlns:local="using:TestUWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:i="using:Microsoft.Xaml.Interactivity"
-    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:controls="using:TestUWP.Controls"
     mc:Ignorable="d" d:DataContext="{d:DesignInstance viewModels:MainPageViewModel}">
 
@@ -45,12 +43,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <TextBlock Text="People" HorizontalAlignment="Center" Style="{StaticResource HeaderText}" FontSize="23" />
-            <ListView Grid.Row="1" ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" Margin="2 15 2 2">
-                <i:Interaction.Behaviors>
-                    <core:EventTriggerBehavior EventName="SelectionChanged">
-                        <core:CallMethodAction TargetObject="{Binding ElementName=Main}" MethodName="_ItemClick" />
-                    </core:EventTriggerBehavior>
-                </i:Interaction.Behaviors>
+            <ListView Grid.Row="1" ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" Margin="2 15 2 2" SelectionChanged="Selector_OnSelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

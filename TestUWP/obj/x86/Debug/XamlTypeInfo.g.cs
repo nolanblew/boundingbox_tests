@@ -132,7 +132,7 @@ namespace TestUWP.TestUWP_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[23];
+            _typeNameTable = new string[15];
             _typeNameTable[0] = "Prism.Unity.Windows.PrismUnityApplication";
             _typeNameTable[1] = "Prism.Windows.PrismApplication";
             _typeNameTable[2] = "Windows.UI.Xaml.Application";
@@ -146,18 +146,10 @@ namespace TestUWP.TestUWP_XamlTypeInfo
             _typeNameTable[10] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[11] = "Prism.Windows.Mvvm.ViewModelLocator";
             _typeNameTable[12] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[13] = "Microsoft.Xaml.Interactivity.Interaction";
-            _typeNameTable[14] = "Microsoft.Xaml.Interactivity.BehaviorCollection";
-            _typeNameTable[15] = "Windows.UI.Xaml.DependencyObjectCollection";
-            _typeNameTable[16] = "Microsoft.Xaml.Interactions.Core.EventTriggerBehavior";
-            _typeNameTable[17] = "Microsoft.Xaml.Interactivity.Behavior";
-            _typeNameTable[18] = "Microsoft.Xaml.Interactivity.ActionCollection";
-            _typeNameTable[19] = "String";
-            _typeNameTable[20] = "Microsoft.Xaml.Interactions.Core.CallMethodAction";
-            _typeNameTable[21] = "TestUWP.Views.MainPage";
-            _typeNameTable[22] = "TestUWP.Views.MainDetailPage";
+            _typeNameTable[13] = "TestUWP.Views.MainPage";
+            _typeNameTable[14] = "TestUWP.Views.MainDetailPage";
 
-            _typeTable = new global::System.Type[23];
+            _typeTable = new global::System.Type[15];
             _typeTable[0] = typeof(global::Prism.Unity.Windows.PrismUnityApplication);
             _typeTable[1] = typeof(global::Prism.Windows.PrismApplication);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Application);
@@ -171,16 +163,8 @@ namespace TestUWP.TestUWP_XamlTypeInfo
             _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[11] = typeof(global::Prism.Windows.Mvvm.ViewModelLocator);
             _typeTable[12] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[13] = typeof(global::Microsoft.Xaml.Interactivity.Interaction);
-            _typeTable[14] = typeof(global::Microsoft.Xaml.Interactivity.BehaviorCollection);
-            _typeTable[15] = typeof(global::Windows.UI.Xaml.DependencyObjectCollection);
-            _typeTable[16] = typeof(global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior);
-            _typeTable[17] = typeof(global::Microsoft.Xaml.Interactivity.Behavior);
-            _typeTable[18] = typeof(global::Microsoft.Xaml.Interactivity.ActionCollection);
-            _typeTable[19] = typeof(global::System.String);
-            _typeTable[20] = typeof(global::Microsoft.Xaml.Interactions.Core.CallMethodAction);
-            _typeTable[21] = typeof(global::TestUWP.Views.MainPage);
-            _typeTable[22] = typeof(global::TestUWP.Views.MainDetailPage);
+            _typeTable[13] = typeof(global::TestUWP.Views.MainPage);
+            _typeTable[14] = typeof(global::TestUWP.Views.MainDetailPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -219,24 +203,8 @@ namespace TestUWP.TestUWP_XamlTypeInfo
         private object Activate_7_Person() { return new global::TestUWP.Models.Person(); }
         private object Activate_9_MainPage() { return new global::TestUWP.MainPage(); }
         private object Activate_11_ViewModelLocator() { return new global::Prism.Windows.Mvvm.ViewModelLocator(); }
-        private object Activate_14_BehaviorCollection() { return new global::Microsoft.Xaml.Interactivity.BehaviorCollection(); }
-        private object Activate_16_EventTriggerBehavior() { return new global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior(); }
-        private object Activate_18_ActionCollection() { return new global::Microsoft.Xaml.Interactivity.ActionCollection(); }
-        private object Activate_20_CallMethodAction() { return new global::Microsoft.Xaml.Interactions.Core.CallMethodAction(); }
-        private object Activate_21_MainPage() { return new global::TestUWP.Views.MainPage(); }
-        private object Activate_22_MainDetailPage() { return new global::TestUWP.Views.MainDetailPage(); }
-        private void VectorAdd_14_BehaviorCollection(object instance, object item)
-        {
-            var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.DependencyObject>)instance;
-            var newItem = (global::Windows.UI.Xaml.DependencyObject)item;
-            collection.Add(newItem);
-        }
-        private void VectorAdd_18_ActionCollection(object instance, object item)
-        {
-            var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.DependencyObject>)instance;
-            var newItem = (global::Windows.UI.Xaml.DependencyObject)item;
-            collection.Add(newItem);
-        }
+        private object Activate_13_MainPage() { return new global::TestUWP.Views.MainPage(); }
+        private object Activate_14_MainDetailPage() { return new global::TestUWP.Views.MainDetailPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -319,68 +287,16 @@ namespace TestUWP.TestUWP_XamlTypeInfo
                 xamlType = new global::TestUWP.TestUWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 13:   //  Microsoft.Xaml.Interactivity.Interaction
-                userType = new global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.AddMemberName("Behaviors");
-                xamlType = userType;
-                break;
-
-            case 14:   //  Microsoft.Xaml.Interactivity.BehaviorCollection
-                userType = new global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObjectCollection"));
-                userType.CollectionAdd = VectorAdd_14_BehaviorCollection;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 15:   //  Windows.UI.Xaml.DependencyObjectCollection
-                xamlType = new global::TestUWP.TestUWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 16:   //  Microsoft.Xaml.Interactions.Core.EventTriggerBehavior
-                userType = new global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Xaml.Interactivity.Behavior"));
-                userType.Activator = Activate_16_EventTriggerBehavior;
-                userType.SetContentPropertyName("Microsoft.Xaml.Interactions.Core.EventTriggerBehavior.Actions");
-                userType.AddMemberName("Actions");
-                userType.AddMemberName("EventName");
-                userType.AddMemberName("SourceObject");
-                xamlType = userType;
-                break;
-
-            case 17:   //  Microsoft.Xaml.Interactivity.Behavior
-                userType = new global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.AddMemberName("AssociatedObject");
-                xamlType = userType;
-                break;
-
-            case 18:   //  Microsoft.Xaml.Interactivity.ActionCollection
-                userType = new global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObjectCollection"));
-                userType.CollectionAdd = VectorAdd_18_ActionCollection;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 19:   //  String
-                xamlType = new global::TestUWP.TestUWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 20:   //  Microsoft.Xaml.Interactions.Core.CallMethodAction
-                userType = new global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_20_CallMethodAction;
-                userType.AddMemberName("TargetObject");
-                userType.AddMemberName("MethodName");
-                xamlType = userType;
-                break;
-
-            case 21:   //  TestUWP.Views.MainPage
+            case 13:   //  TestUWP.Views.MainPage
                 userType = new global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_21_MainPage;
+                userType.Activator = Activate_13_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 22:   //  TestUWP.Views.MainDetailPage
+            case 14:   //  TestUWP.Views.MainDetailPage
                 userType = new global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_22_MainDetailPage;
+                userType.Activator = Activate_14_MainDetailPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -417,64 +333,6 @@ namespace TestUWP.TestUWP_XamlTypeInfo
         {
             global::Prism.Windows.Mvvm.ViewModelLocator.SetAutoWireViewModel((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.Boolean)Value);
         }
-        private object get_4_Interaction_Behaviors(object instance)
-        {
-            return global::Microsoft.Xaml.Interactivity.Interaction.GetBehaviors((global::Windows.UI.Xaml.DependencyObject)instance);
-        }
-        private void set_4_Interaction_Behaviors(object instance, object Value)
-        {
-            global::Microsoft.Xaml.Interactivity.Interaction.SetBehaviors((global::Windows.UI.Xaml.DependencyObject)instance, (global::Microsoft.Xaml.Interactivity.BehaviorCollection)Value);
-        }
-        private object get_5_EventTriggerBehavior_Actions(object instance)
-        {
-            var that = (global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior)instance;
-            return that.Actions;
-        }
-        private object get_6_EventTriggerBehavior_EventName(object instance)
-        {
-            var that = (global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior)instance;
-            return that.EventName;
-        }
-        private void set_6_EventTriggerBehavior_EventName(object instance, object Value)
-        {
-            var that = (global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior)instance;
-            that.EventName = (global::System.String)Value;
-        }
-        private object get_7_EventTriggerBehavior_SourceObject(object instance)
-        {
-            var that = (global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior)instance;
-            return that.SourceObject;
-        }
-        private void set_7_EventTriggerBehavior_SourceObject(object instance, object Value)
-        {
-            var that = (global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior)instance;
-            that.SourceObject = (global::System.Object)Value;
-        }
-        private object get_8_Behavior_AssociatedObject(object instance)
-        {
-            var that = (global::Microsoft.Xaml.Interactivity.Behavior)instance;
-            return that.AssociatedObject;
-        }
-        private object get_9_CallMethodAction_TargetObject(object instance)
-        {
-            var that = (global::Microsoft.Xaml.Interactions.Core.CallMethodAction)instance;
-            return that.TargetObject;
-        }
-        private void set_9_CallMethodAction_TargetObject(object instance, object Value)
-        {
-            var that = (global::Microsoft.Xaml.Interactions.Core.CallMethodAction)instance;
-            that.TargetObject = (global::System.Object)Value;
-        }
-        private object get_10_CallMethodAction_MethodName(object instance)
-        {
-            var that = (global::Microsoft.Xaml.Interactions.Core.CallMethodAction)instance;
-            return that.MethodName;
-        }
-        private void set_10_CallMethodAction_MethodName(object instance, object Value)
-        {
-            var that = (global::Microsoft.Xaml.Interactions.Core.CallMethodAction)instance;
-            that.MethodName = (global::System.String)Value;
-        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -509,55 +367,6 @@ namespace TestUWP.TestUWP_XamlTypeInfo
                 xamlMember.SetIsAttachable();
                 xamlMember.Getter = get_3_ViewModelLocator_AutoWireViewModel;
                 xamlMember.Setter = set_3_ViewModelLocator_AutoWireViewModel;
-                break;
-            case "Microsoft.Xaml.Interactivity.Interaction.Behaviors":
-                userType = (global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactivity.Interaction");
-                xamlMember = new global::TestUWP.TestUWP_XamlTypeInfo.XamlMember(this, "Behaviors", "Microsoft.Xaml.Interactivity.BehaviorCollection");
-                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_4_Interaction_Behaviors;
-                xamlMember.Setter = set_4_Interaction_Behaviors;
-                break;
-            case "Microsoft.Xaml.Interactions.Core.EventTriggerBehavior.Actions":
-                userType = (global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactions.Core.EventTriggerBehavior");
-                xamlMember = new global::TestUWP.TestUWP_XamlTypeInfo.XamlMember(this, "Actions", "Microsoft.Xaml.Interactivity.ActionCollection");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_5_EventTriggerBehavior_Actions;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Microsoft.Xaml.Interactions.Core.EventTriggerBehavior.EventName":
-                userType = (global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactions.Core.EventTriggerBehavior");
-                xamlMember = new global::TestUWP.TestUWP_XamlTypeInfo.XamlMember(this, "EventName", "String");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_6_EventTriggerBehavior_EventName;
-                xamlMember.Setter = set_6_EventTriggerBehavior_EventName;
-                break;
-            case "Microsoft.Xaml.Interactions.Core.EventTriggerBehavior.SourceObject":
-                userType = (global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactions.Core.EventTriggerBehavior");
-                xamlMember = new global::TestUWP.TestUWP_XamlTypeInfo.XamlMember(this, "SourceObject", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_7_EventTriggerBehavior_SourceObject;
-                xamlMember.Setter = set_7_EventTriggerBehavior_SourceObject;
-                break;
-            case "Microsoft.Xaml.Interactivity.Behavior.AssociatedObject":
-                userType = (global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactivity.Behavior");
-                xamlMember = new global::TestUWP.TestUWP_XamlTypeInfo.XamlMember(this, "AssociatedObject", "Windows.UI.Xaml.DependencyObject");
-                xamlMember.Getter = get_8_Behavior_AssociatedObject;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Microsoft.Xaml.Interactions.Core.CallMethodAction.TargetObject":
-                userType = (global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactions.Core.CallMethodAction");
-                xamlMember = new global::TestUWP.TestUWP_XamlTypeInfo.XamlMember(this, "TargetObject", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_9_CallMethodAction_TargetObject;
-                xamlMember.Setter = set_9_CallMethodAction_TargetObject;
-                break;
-            case "Microsoft.Xaml.Interactions.Core.CallMethodAction.MethodName":
-                userType = (global::TestUWP.TestUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactions.Core.CallMethodAction");
-                xamlMember = new global::TestUWP.TestUWP_XamlTypeInfo.XamlMember(this, "MethodName", "String");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_10_CallMethodAction_MethodName;
-                xamlMember.Setter = set_10_CallMethodAction_MethodName;
                 break;
             }
             return xamlMember;

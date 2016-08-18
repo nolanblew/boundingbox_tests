@@ -34,19 +34,20 @@ namespace TestUWP.Views
         MainPageViewModel _viewModel => DataContext as MainPageViewModel;
         INavigationService _navigationService;
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            if (e.NavigationMode == NavigationMode.Back &&
+                Window.Current.Bounds.Width < 720)
+            {
+                _viewModel.SelectedPerson = null;
+            }
+        }
+
         void AdaptiveStates_OnCurrentStateChanged(object sender, VisualStateChangedEventArgs e)
         {
             _UpdateForVisualState(e.NewState, e.OldState);
-        }
-
-        public void _ItemClick()
-        {
-            if (AdaptiveStates.CurrentState == NarrowState &&
-                _viewModel.SelectedPerson != null)
-            {
-                // Resize down to the detail item.
-                _navigationService.Navigate("MainDetail", _viewModel.SelectedPerson);
-            }
         }
 
         void _UpdateForVisualState(VisualState newState, VisualState oldState = null)
@@ -54,6 +55,16 @@ namespace TestUWP.Views
             var isNarrow = newState == NarrowState;
 
             if (isNarrow && oldState == DefaultState && _viewModel.SelectedPerson != null)
+            {
+                // Resize down to the detail item.
+                _navigationService.Navigate("MainDetail", _viewModel.SelectedPerson);
+            }
+        }
+
+        void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (AdaptiveStates.CurrentState == NarrowState &&
+                _viewModel.SelectedPerson != null)
             {
                 // Resize down to the detail item.
                 _navigationService.Navigate("MainDetail", _viewModel.SelectedPerson);

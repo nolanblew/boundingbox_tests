@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\NolanBlew\Documents\Visual Studio 2015\Projects\TestUWP\TestUWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-18T19:41:31.283</Modified>
+      <Modified>2016-08-18T20:41:36.216</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\NolanBlew\Documents\Visual Studio 2015\Projects\TestUWP\TestUWP\bin\x86\Debug\TestUWP.exe">
       <PackagePath>entrypoint\TestUWP.exe</PackagePath>
-      <Modified>2016-08-18T19:41:30.145</Modified>
+      <Modified>2016-08-18T20:41:35.268</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\NolanBlew\.nuget\packages\CommonServiceLocator\1.3.0\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll">
       <PackagePath>Microsoft.Practices.ServiceLocation.dll</PackagePath>
@@ -532,7 +532,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\NolanBlew\Documents\Visual Studio 2015\Projects\TestUWP\TestUWP\bin\x86\Debug\TestUWP.xr.xml">
       <PackagePath>TestUWP.xr.xml</PackagePath>
-      <Modified>2016-08-18T18:41:27.394</Modified>
+      <Modified>2016-08-18T20:27:17.155</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -540,11 +540,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\NolanBlew\Documents\Visual Studio 2015\Projects\TestUWP\TestUWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-08-18T19:41:30.796</Modified>
+      <Modified>2016-08-18T20:41:35.813</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\NolanBlew\Documents\Visual Studio 2015\Projects\TestUWP\TestUWP\bin\x86\Debug\Core\TestUWP.exe">
       <PackagePath>TestUWP.exe</PackagePath>
-      <Modified>2016-08-18T19:41:31.278</Modified>
+      <Modified>2016-08-18T20:41:36.212</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
